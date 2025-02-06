@@ -19,3 +19,8 @@ export const fetchRockets = async (): Promise<Rocket[]> => {
   const response = await api.get('/rockets');
   return response.data;
 };
+
+export const fetchRocketById = async (id: string): Promise<Rocket> => {
+  const response = await api.get(`/rockets/${id}`);
+  return response.data;
+};

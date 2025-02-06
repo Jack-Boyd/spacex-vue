@@ -1,7 +1,8 @@
 <script setup>
-  import { useRockets } from '../composables/useRockets';
+import { useRockets } from '../composables/useRockets';
+import { RouterLink } from 'vue-router';
 
-  const { data: rockets, isLoading, error } = useRockets();
+const { data: rockets, isLoading, error } = useRockets();
 </script>
 
 <template>
@@ -14,10 +15,7 @@
       <li v-for="rocket in rockets" :key="rocket.id">
         <h3>{{ rocket.name }}</h3>
         <p>{{ rocket.description }}</p>
-        <p><strong>First Flight:</strong> {{ rocket.first_flight }}</p>
-        <p><strong>Country:</strong> {{ rocket.country }}</p>
-        <p><strong>Success Rate:</strong> {{ rocket.success_rate_pct }}%</p>
-        <img :src="rocket.flickr_images[0]" alt="Rocket Image" width="300" />
+        <RouterLink :to="`/rocket/${rocket.id}`">View Details</RouterLink>
       </li>
     </ul>
   </div>
