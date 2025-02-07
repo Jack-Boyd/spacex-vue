@@ -6,5 +6,5 @@ import './styles/index.css';
 
 const app = createApp(App);
 app.use(VueQueryPlugin);
-app.use(router); // ✅ Ensure router is used before mounting
+app.use(router);
 app.mount('#app');
